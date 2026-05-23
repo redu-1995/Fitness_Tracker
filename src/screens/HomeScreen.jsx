@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, ScrollView, StyleSheet,
     SafeAreaView
  } from 'react-native'
  import ProgressScreen from './ProgressScreen';
+ import ActionButtons from './ActionButtons';
 
 export default function HomeScreen(){
 
@@ -15,6 +16,7 @@ export default function HomeScreen(){
                  <Text style = {styles.subtitle}>Ready for today's workout?</Text>
             </View>
             <ProgressScreen />
+            <ActionButtons />
         </ScrollView>     
      </SafeAreaView>
     )
