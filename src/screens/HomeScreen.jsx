@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, ScrollView, StyleSheet,
  } from 'react-native'
  import ProgressScreen from './ProgressScreen';
  import ActionButtons from './ActionButtons';
+ import FeaturedWorkouts from './FeaturedWorkouts';
 
 export default function HomeScreen(){
 
@@ -11,12 +12,15 @@ export default function HomeScreen(){
      <SafeAreaView
  style = {styles.safeArea}> 
         <ScrollView contentContainerStyle = {styles.scrollContainer}>
+          <View style={styles.mainContent}>
             <View style={styles.headerContainer}>
                  <Text style = {styles.title}>Good Morning</Text>
                  <Text style = {styles.subtitle}>Ready for today's workout?</Text>
             </View>
             <ProgressScreen />
             <ActionButtons />
+            </View>
+            <FeaturedWorkouts />
         </ScrollView>     
      </SafeAreaView>
     )
@@ -27,6 +31,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff'
     
+    
+  },
+   mainContent: {
+    paddingHorizontal: 20, // Keeps your static elements perfectly uniform
   },
   scrollContainer:{
     paddingHorizontal: 20,
