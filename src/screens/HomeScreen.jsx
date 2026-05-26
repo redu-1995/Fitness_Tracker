@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, TextInput, Button, ScrollView, StyleSheet, 
     SafeAreaView
  } from 'react-native'
- import ProgressScreen from './ProgressScreen';
- import ActionButtons from './ActionButtons';
+ import ProgressBar from '../components/ProgressBar';
+ import ActionButtons from '../components/ActionButtons';
+ import WeeklyGoalAndQuote from '../components/WeeklyGoalAndQuote';
 
 export default function HomeScreen(){
 
@@ -15,8 +16,11 @@ export default function HomeScreen(){
                  <Text style = {styles.title}>Good Morning</Text>
                  <Text style = {styles.subtitle}>Ready for today's workout?</Text>
             </View>
-            <ProgressScreen />
+            <ProgressBar />
             <ActionButtons />
+            <View style={styles.mainContent}>
+          <WeeklyGoalAndQuote />
+        </View>
         </ScrollView>     
      </SafeAreaView>
     )

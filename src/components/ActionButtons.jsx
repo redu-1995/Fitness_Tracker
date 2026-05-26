@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 export default function ActionButtons() {
   return (
     <View style={styles.container}>
-      
+       <Text style={styles.sectionHeader}>QUICK ACTIONS</Text>
       {/* Primary Button: Start Workout */}
       <TouchableOpacity 
         style={styles.primaryButton} 
@@ -22,6 +22,13 @@ export default function ActionButtons() {
       >
         <Text style={styles.secondaryButtonText}>📊 View Progress</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+       style={styles.secondaryButton}
+       activeOpacity = {0.7}
+       onPress = {()=> console.log('Browse Workouts Pressed')}
+      >
+      <Text style = {styles.secondaryButtonText}>🔍 Browse Workout</Text>
+      </TouchableOpacity>
 
     </View>
   );
@@ -29,19 +36,23 @@ export default function ActionButtons() {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row', // Aligns buttons side-by-side
-    justifyContent: 'space-between',
-    marginVertical: 15,
-    gap: 12, // Modern layout property to create clean spacing between items
+    marginVertical: 18,
+  },
+  sectionHeader: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#A0AEC0', // Subtle uppercase gray label
+    letterSpacing: 1.2,
+    marginBottom: 10,
   },
   primaryButton: {
-    flex: 1, // Ensures both buttons take up equal half widths
-    backgroundColor: '#1A1A1A', // Bold dark aesthetic, or use your app's brand color
+    width: '100%',
+    backgroundColor: '#1A1A1A',
     paddingVertical: 16,
     borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    // Subtle lift shadow
+    marginBottom: 12, // Spacing between the top button and the bottom row
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
@@ -53,19 +64,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
   },
+  secondaryRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 12, // Automatically handles equal spacing between the two nested items
+  },
   secondaryButton: {
-    flex: 1,
-    backgroundColor: '#F5F7FA', // Soft gray background to look clickable but secondary
-    paddingVertical: 16,
-    borderRadius: 14,
+    flex: 1, // Ensures both split buttons take up exactly 50% of the remaining width
+    backgroundColor: '#F5F7FA',
+    paddingVertical: 14,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#EAEFF5',
   },
   secondaryButtonText: {
-    color: '#4A5568', // Subtle text color so it doesn't compete with the primary button
-    fontSize: 16,
+    color: '#4A5568',
+    fontSize: 14, // Slightly smaller text so it fits comfortably on smaller screens
     fontWeight: '600',
   },
 });
