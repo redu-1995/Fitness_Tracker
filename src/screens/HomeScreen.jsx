@@ -5,7 +5,7 @@ import { View, Text, TextInput, Button, ScrollView, StyleSheet,
  import ProgressBar from '../components/ProgressBar';
  import ActionButtons from '../components/ActionButtons';
  import WeeklyGoalAndQuote from '../components/WeeklyGoalAndQuote';
-
+import FeaturedWorkouts from '../components/FeaturedWorkouts';
 export default function HomeScreen(){
 
     return (
@@ -18,6 +18,8 @@ export default function HomeScreen(){
             </View>
             <ProgressBar />
             <ActionButtons />
+
+            <FeaturedWorkouts />
             <View style={styles.mainContent}>
           <WeeklyGoalAndQuote />
         </View>

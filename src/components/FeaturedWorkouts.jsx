@@ -3,64 +3,46 @@ import { View, Text, TouchableOpacity, StyleSheet,
     ScrollView
  } from 'react-native';
 import { ScrollView } from 'react-native/types_generated/index';
-
-
-const FEATURED_WORKOUTS = [
-    {
-        id: '1',
-        title: 'Chest Workout',
-        duration: '45 mins',
-        emoji: '💪',
-        bgColor: '#E6FFFA',
-        accentColor: '#319795'
-    },
-    {
-    id: '2',
-    title: 'Cardio Burn',
-    duration: '25 mins',
-    level: 'Beginner',
-    emoji: '🏃‍♂️',
-    bgColor: '#FFFAF0', // Light Orange/Yellow
-    accentColor: '#DD6B20',
-  },
-  {
-    id: '3',
-    title: 'Leg Day',
-    duration: '50 mins',
-    level: 'Advanced',
-    emoji: '🏋️‍♀️',
-    bgColor: '#FED7D7', // Light Red
-    accentColor: '#E53E3E',
-  },
-]
+import { WORKOUTS } from '../data/workouts';
+import WorkoutCard from './WorkoutCard';
 
 export default function FeaturedWorkouts(){
-    return(
-        <View>
-            <Text>Featured Workouts</Text>
-       
-        {/* Horizontal Scroll Layer */}
+    const featuredDate = WORKOUTS.filter(workout=> workout.isFeatured)
+    return (
+    <View style={styles.container}>
+      <Text style={styles.sectionHeader}>FEATURED WORKOUTS</Text>
 
-        <ScrollView
+      <ScrollView
         horizontal
-        showsHorizontalScrollIndicator = {false}
-        contentContainerStyle ={}
-        >
-            {FEATURED_WORKOUTS.map((workout)=>(
-                <TouchableOpacity
-                   key = {workout.id}
-                   style = {[StyleSheet.card, {backgroundColor: workout.bgColor}]}
-                   activeOpacity={0.8}
-                >
-                    <View>
-                        <Text>{workout.emoji}</Text>
-                        <View></View>
-                    </View>
-
-                </TouchableOpacity>
-            ))}
-            
-            </ScrollView>
-             </View>
-    )
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.scrollPadding}
+      >
+        {featuredData.map((item) => (
+          <WorkoutCard 
+            key={item.id} 
+            workout={item}
+            onPress={() => console.log(`Open Detail Screen for: ${item.title}`)}
+          />
+        ))}
+      </ScrollView>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: 15,
+  },
+  sectionHeader: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#A0AEC0',
+    letterSpacing: 1.2,
+    marginBottom: 12,
+    paddingHorizontal: 20,
+  },
+  scrollPadding: {
+    paddingHorizontal: 20,
+    paddingBottom: 6,
+  },
+});
