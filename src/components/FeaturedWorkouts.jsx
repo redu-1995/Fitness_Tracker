@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet,
-    ScrollView
- } from 'react-native';
-import { ScrollView } from 'react-native/types_generated/index';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { WORKOUTS } from '../data/workouts';
-import WorkoutCard from './WorkoutCard';
+import WorkoutCard from './WorkoutCard'; // <-- Import your brand new component here!
 
-export default function FeaturedWorkouts(){
-    const featuredDate = WORKOUTS.filter(workout=> workout.isFeatured)
-    return (
+export default function FeaturedWorkouts() {
+  const featuredData = WORKOUTS.filter(workout => workout.isFeatured);
+
+  return (
     <View style={styles.container}>
       <Text style={styles.sectionHeader}>FEATURED WORKOUTS</Text>
 
