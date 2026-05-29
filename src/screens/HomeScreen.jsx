@@ -1,33 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { View, Text, TextInput, Button, ScrollView, StyleSheet, 
-    SafeAreaView
- } from 'react-native'
- import ProgressBar from '../components/ProgressBar';
- import ActionButtons from '../components/ActionButtons';
- import WeeklyGoalAndQuote from '../components/WeeklyGoalAndQuote';
-import FeaturedWorkouts from '../components/FeaturedWorkouts';
-export default function HomeScreen(){
-
-    return (
-     <SafeAreaView
- style = {styles.safeArea}> 
-        <ScrollView contentContainerStyle = {styles.scrollContainer}>
-            <View style={styles.headerContainer}>
-                 <Text style = {styles.title}>Good Morning</Text>
-                 <Text style = {styles.subtitle}>Ready for today's workout?</Text>
-            </View>
-            <ProgressBar />
-            <ActionButtons />
-
-            <FeaturedWorkouts />
-            <View style={styles.mainContent}>
-          <WeeklyGoalAndQuote />
-        </View>
-        </ScrollView>     
-     </SafeAreaView>
-    )
-=======
 import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 
 // Import all your dashboard child components
@@ -69,21 +40,20 @@ export default function HomeScreen() {
       </ScrollView>
     </SafeAreaView>
   );
->>>>>>> 6c54f1565c46c5da6ff78d1f83b3bd905ea74ab5
+
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-<<<<<<< HEAD
-    backgroundColor: '#fff'
+
+    backgroundColor: '#fff',
     
-=======
     backgroundColor: '#FAFBFC', // Clean light gray canvas
   },
   scrollContainer: {
     paddingVertical: 20, // Breathing space at the very top and bottom of the page
->>>>>>> 6c54f1565c46c5da6ff78d1f83b3bd905ea74ab5
+
   },
   paddedContent: {
     paddingHorizontal: 20, // Keeps your main cards aligned to a beautiful 20px grid gutter
