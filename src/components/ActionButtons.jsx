@@ -4,14 +4,6 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 export default function ActionButtons() {
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
-       <Text style={styles.sectionHeader}>QUICK ACTIONS</Text>
-      {/* Primary Button: Start Workout */}
-=======
-      <Text style={styles.sectionHeader}>QUICK ACTIONS</Text>
-
-      {/* Row 1: Primary Full-Width CTA */}
->>>>>>> 6c54f1565c46c5da6ff78d1f83b3bd905ea74ab5
       <TouchableOpacity 
         style={styles.primaryButton} 
         activeOpacity={0.8}
@@ -20,23 +12,6 @@ export default function ActionButtons() {
         <Text style={styles.primaryButtonText}>🚀 Start Workout</Text>
       </TouchableOpacity>
 
-<<<<<<< HEAD
-      {/* Secondary Button: View Progress */}
-      <TouchableOpacity 
-        style={styles.secondaryButton} 
-        activeOpacity={0.7}
-        onPress={() => console.log('View Progress Pressed')}
-      >
-        <Text style={styles.secondaryButtonText}>📊 View Progress</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-       style={styles.secondaryButton}
-       activeOpacity = {0.7}
-       onPress = {()=> console.log('Browse Workouts Pressed')}
-      >
-      <Text style = {styles.secondaryButtonText}>🔍 Browse Workout</Text>
-      </TouchableOpacity>
-=======
       {/* Row 2: Secondary Split Buttons */}
       <View style={styles.secondaryRow}>
         <TouchableOpacity 
@@ -55,7 +30,6 @@ export default function ActionButtons() {
           <Text style={styles.secondaryButtonText}>🔍 Browse Workouts</Text>
         </TouchableOpacity>
       </View>
->>>>>>> 6c54f1565c46c5da6ff78d1f83b3bd905ea74ab5
 
     </View>
   );
