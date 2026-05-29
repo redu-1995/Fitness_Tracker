@@ -23,7 +23,7 @@ export default function HomeScreen() {
           </View>
 
           <ProgressBar />
-          <ActionButtons />
+          <ActionButtons/>
         </View>
 
         {/* SECTION 2: The Horizontal Featured Carousel */}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 export default function ActionButtons() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <TouchableOpacity 
@@ -25,11 +27,12 @@ export default function ActionButtons() {
         <TouchableOpacity 
           style={styles.secondaryButton} 
           activeOpacity={0.7}
-          onPress={() => console.log('Browse Workouts Pressed')}
+          onPress={() => navigation.navigate('WorkoutList')}
         >
           <Text style={styles.secondaryButtonText}>🔍 Browse Workouts</Text>
         </TouchableOpacity>
       </View>
+
 
     </View>
   );

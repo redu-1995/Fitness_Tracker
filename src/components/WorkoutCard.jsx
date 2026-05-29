@@ -2,31 +2,26 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function WorkoutCard({ workout, onPress }) {
-  // Gracefully handles fallback if workout titles are formatted differently
-  const displayTitle = workout.title.includes('&') 
-    ? `${workout.title.split(' ')[0]} Workout` 
-    : workout.title;
-
   return (
     <TouchableOpacity 
-      style={[styles.card, { backgroundColor: workout.bgColor || '#F5F7FA' }]}
+      style={[styles.card, { backgroundColor: workout.bgColor }]}
       activeOpacity={0.8}
       onPress={onPress}
     >
-      {/* Top Section: Title & Icon */}
-      <View style={styles.headerRow}>
-        <Text style={styles.title} numberOfLines={2}>
-          {displayTitle}
+      {/* Top row with Title and Emoji */}
+      <View style={styles.cardHeader}>
+        <Text style={styles.cardTitle} numberOfLines={1}>
+          {workout.title.split(' ')[0]} Workout {/* Truncates cleanly if title is too long */}
         </Text>
-        <Text style={styles.emoji}>{workout.emoji || '💪'}</Text>
+        <Text style={styles.cardEmoji}>{workout.emoji}</Text>
       </View>
 
-      {/* Bottom Section: Specific Metrics */}
-      <View style={styles.metricsContainer}>
-        <Text style={[styles.metricText, { color: workout.accentColor || '#4A5568' }]}>
+      {/* Stats Area */}
+      <View style={styles.statsContainer}>
+        <Text style={[styles.statText, { color: workout.accentColor }]}>
           ⏱ {workout.duration}
         </Text>
-        <Text style={[styles.metricText, { color: workout.accentColor || '#4A5568' }]}>
+        <Text style={[styles.statText, { color: workout.accentColor }]}>
           🔥 {workout.calories} cal
         </Text>
       </View>
@@ -36,39 +31,38 @@ export default function WorkoutCard({ workout, onPress }) {
 
 const styles = StyleSheet.create({
   card: {
-    width: 190, // Fixed layout width matching your structural UI mockup
-    height: 140, // Uniform height constraint for horizontal list alignment
+    width: 190, // Keeps the layout close to your structural design aspect ratio
     borderRadius: 16,
     padding: 16,
     marginRight: 14,
-    justifyContent: 'space-between', // Pushes title to top and stats to bottom
-    // Elevation shadows for layered design depth
+    justifyContent: 'space-between',
+    // Subtle shadow depth
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
+    shadowOpacity: 0.05,
     shadowRadius: 6,
     elevation: 2,
   },
-  headerRow: {
+  cardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+    marginBottom: 24,
   },
-  title: {
+  cardTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: '#1A1A1A',
-    flex: 1, // Allows text wrapper to break into newlines cleanly without clipping
-    paddingRight: 6,
-    lineHeight: 22,
+    flex: 1,
+    paddingRight: 4,
   },
-  emoji: {
+  cardEmoji: {
     fontSize: 22,
   },
-  metricsContainer: {
-    gap: 4, // Clean structural alignment spacing rule
+  statsContainer: {
+    gap: 4, // Spacks out duration and calories uniformly
   },
-  metricText: {
+  statText: {
     fontSize: 14,
     fontWeight: '600',
   },
