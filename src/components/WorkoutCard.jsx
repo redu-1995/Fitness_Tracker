@@ -31,7 +31,7 @@ export default function WorkoutCard({ workout, onPress }) {
 
 const styles = StyleSheet.create({
   card: {
-    width: 190, // Keeps the layout close to your structural design aspect ratio
+    width:'100%', // Keeps the layout close to your structural design aspect ratio
     borderRadius: 16,
     padding: 16,
     marginRight: 14,
