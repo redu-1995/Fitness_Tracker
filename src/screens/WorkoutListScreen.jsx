@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView,View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { WORKOUTS } from '../data/workouts';
 import WorkoutCard from '../components/WorkoutCard';
-
+import WorkoutDetailScreen from './WorkoutDetailScreen';
 const CATEGORIES = ['All', 'Strength', 'Cardio', 'Core'];
 
 export default function WorkoutListScreen({ navigation }) {
@@ -62,7 +62,11 @@ export default function WorkoutListScreen({ navigation }) {
           <View style={styles.cardWrapper}>
             <WorkoutCard 
               workout={item} 
-              onPress={() => navigation.navigate('WorkoutDetailScreen', { workoutId: item.id })}
+            onPress={() =>
+    navigation.navigate('WorkoutDetailScreen', {
+      workoutId: item.id,
+    })
+  }
             />
           </View>
         )}
