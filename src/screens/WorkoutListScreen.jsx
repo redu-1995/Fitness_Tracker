@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { ScrollView,View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { WORKOUTS } from '../data/workouts';
 import WorkoutCard from '../components/WorkoutCard';
 
@@ -25,11 +25,20 @@ export default function WorkoutListScreen({ navigation }) {
         // Header element rendering
         ListHeaderComponent={
           <View style={styles.headerContainer}>
-            <Text style={styles.screenTitle}>Browse Workouts</Text>
-            <Text style={styles.subtitle}>Pick a routine tailored to your goals today</Text>
+              <Text style={styles.screenTitle}>
+              Find Your Workout 💪
+            </Text>
+
+            <Text style={styles.subtitle}>
+              Choose a workout and stay consistent with your fitness goals.
+            </Text>
 
             {/* Horizontal Category Selector Pills */}
-            <View style={styles.categoryRow}>
+            <ScrollView
+  horizontal
+  showsHorizontalScrollIndicator={false}
+  contentContainerStyle={styles.categoryRow}
+>
               {CATEGORIES.map((category) => {
                 const isActive = selectedCategory === category;
                 return (
@@ -44,7 +53,7 @@ export default function WorkoutListScreen({ navigation }) {
                   </TouchableOpacity>
                 );
               })}
-            </View>
+            </ScrollView>
           </View>
         }
 
@@ -72,57 +81,83 @@ export default function WorkoutListScreen({ navigation }) {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#FAFBFC',
+    backgroundColor: '#F4F6F8',
   },
+
   listContainer: {
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingBottom: 30,
   },
+
   headerContainer: {
-    marginBottom: 20,
+    paddingTop: 20,
+    marginBottom: 28,
   },
+
   screenTitle: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: '800',
-    color: '#1A1A1A',
+    color: '#111827',
+    letterSpacing: -0.5,
   },
+
   subtitle: {
-    fontSize: 15,
-    color: '#718096',
-    marginTop: 4,
+    fontSize: 16,
+    color: '#6B7280',
+    marginTop: 6,
+    lineHeight: 22,
   },
+
   categoryRow: {
     flexDirection: 'row',
-    marginTop: 16,
-    gap: 8,
+    marginTop: 22,
+    flexWrap: 'wrap',
   },
+
   pill: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#E2E8F0',
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 24,
+    backgroundColor: '#FFFFFF',
+    marginRight: 10,
+    marginBottom: 10,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
+
   activePill: {
-    backgroundColor: '#1A1A1A', // High contrast active selection state
+    backgroundColor: '#FF5A5F',
   },
+
   pillText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#4A5568',
+    color: '#4B5563',
   },
+
   activePillText: {
     color: '#FFFFFF',
   },
+
   cardWrapper: {
-    marginBottom: 14, // Spacing between stacked vertical cards
-    width: '100%',   // Card expands to utilize entire safe width
+    marginBottom: 18,
   },
+
   emptyContainer: {
+    marginTop: 60,
     alignItems: 'center',
-    marginTop: 40,
   },
+
   emptyText: {
-    color: '#718096',
     fontSize: 15,
-  }
+    color: '#9CA3AF',
+    textAlign: 'center',
+  },
 });
