@@ -85,10 +85,7 @@ export default function WorkoutDetailScreen({ route, navigation }) {
             </View>
           ))}
         </View>
-      </ScrollView>
-
-      {/* ─── 4. START BUTTON ─── */}
-      <View style={styles.actionFooter}>
+        <View style={styles.actionFooter}>
         <TouchableOpacity 
           style={styles.startButton} 
           activeOpacity={0.8}
@@ -97,6 +94,10 @@ export default function WorkoutDetailScreen({ route, navigation }) {
           <Text style={styles.startButtonText}>Start Workout Routine</Text>
         </TouchableOpacity>
       </View>
+      </ScrollView>
+
+      {/* ─── 4. START BUTTON ─── */}
+      
 
     </SafeAreaView>
   );
@@ -107,17 +108,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FAFBFC',
   },
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 100, // Provides safety spacing so the bottom sticky button never covers up text
-  },
+ scrollContent: {
+  paddingHorizontal: 20,
+  paddingBottom: 20,
+},
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    backgroundColor: '#FAFBFC',
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 20,
+  paddingTop: 40,
+  paddingBottom: 8,
+},
   backButtonCircle: {
     width: 36,
     height: 36,
@@ -143,19 +144,21 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   description: {
-    fontSize: 15,
-    color: '#718096',
-    lineHeight: 22,
-    marginVertical: 12,
-  },
+  fontSize: 14,
+  color: '#64748B',
+  lineHeight: 20,
+  marginTop: 6,
+  marginBottom: 12,
+},
   statsCard: {
-    flexDirection: 'row',
-    borderRadius: 16,
-    padding: 16,
-    marginVertical: 12,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  flexDirection: 'row',
+  borderRadius: 18,
+  paddingVertical: 18,
+  paddingHorizontal: 12,
+  marginBottom: 18,
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
   statColumn: {
     flex: 1,
     alignItems: 'center',
@@ -167,35 +170,43 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     marginBottom: 4,
   },
-  statValue: {
-    fontSize: 14,
-    fontWeight: '700',
-  },
+ statValue: {
+  fontSize: 15,
+  fontWeight: '700',
+  marginTop: 4,
+},
   dividerLine: {
     width: 1,
     height: 28,
     backgroundColor: 'rgba(0,0,0,0.06)',
   },
   sectionTitle: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#A0AEC0',
-    letterSpacing: 1.2,
-    marginTop: 24,
-    marginBottom: 12,
-  },
+  fontSize: 18,
+  fontWeight: '700',
+  color: '#1A1A1A',
+  marginBottom: 14,
+},
   exerciseContainer: {
     gap: 12,
   },
-  exerciseRow: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 14,
-    padding: 14,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#EAEFF5',
+ exerciseRow: {
+  flexDirection: 'row',
+  backgroundColor: '#FFFFFF',
+  borderRadius: 18,
+  padding: 16,
+  alignItems: 'center',
+  marginBottom: 10,
+
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 2,
   },
+  shadowOpacity: 0.04,
+  shadowRadius: 4,
+
+  elevation: 2,
+},
   numberIndex: {
     width: 32,
     height: 32,
@@ -222,33 +233,24 @@ const styles = StyleSheet.create({
     color: '#718096',
   },
   actionFooter: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#FAFBFC',
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    paddingBottom: 24, // Comfortable clearance for gesture/navigation bars
-    borderTopWidth: 1,
-    borderColor: '#EAEFF5',
-  },
+  backgroundColor: '#FAFBFC',
+  paddingHorizontal: 20,
+  paddingVertical: 12,
+  borderTopWidth: 1,
+  borderColor: '#EEF2F7',
+},
   startButton: {
-    backgroundColor: '#1A1A1A',
-    borderRadius: 14,
-    paddingVertical: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -3 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-  },
+  backgroundColor: '#FF5A5F',
+  borderRadius: 16,
+  height: 56,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
   startButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
-  },
+  color: '#FFFFFF',
+  fontSize: 17,
+  fontWeight: '700',
+},
   errorContainer: {
     flex: 1,
     justifyContent: 'center',

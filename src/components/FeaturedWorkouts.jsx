@@ -1,9 +1,15 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { WORKOUTS } from '../data/workouts';
-import WorkoutCard from './WorkoutCard'; // <-- Import your brand new component here!
+import WorkoutCard from './WorkoutCard';
+
+
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function FeaturedWorkouts() {
+ 
+  const navigation = useNavigation(); 
+
   const featuredData = WORKOUTS.filter(workout => workout.isFeatured);
 
   return (
@@ -19,7 +25,9 @@ export default function FeaturedWorkouts() {
           <WorkoutCard 
             key={item.id} 
             workout={item}
-            onPress={() => console.log(`Open Detail Screen for: ${item.title}`)}
+            style={{ width: 200 }} // Keeps cards uniform horizontally
+            // 3. This navigation call will now work perfectly!
+            onPress={() => navigation.navigate('WorkoutDetailScreen', { workoutId: item.id })}
           />
         ))}
       </ScrollView>

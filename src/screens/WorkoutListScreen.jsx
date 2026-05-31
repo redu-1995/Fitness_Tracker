@@ -25,6 +25,9 @@ export default function WorkoutListScreen({ navigation }) {
         // Header element rendering
         ListHeaderComponent={
           <View style={styles.headerContainer}>
+             <TouchableOpacity style={styles.backButtonCircle} onPress={() => navigation.goBack()}>
+                      <Text style={styles.backArrow}>←</Text>
+                </TouchableOpacity>
               <Text style={styles.screenTitle}>
               Find Your Workout 💪
             </Text>
@@ -163,5 +166,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#9CA3AF',
     textAlign: 'center',
+  },
+   backButtonCircle: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#E2E8F0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+   backArrow: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#4A5568',
+    marginTop: -2, // Center alignment optical adjustment
   },
 });
